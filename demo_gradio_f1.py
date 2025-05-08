@@ -386,7 +386,11 @@ with block:
                 cfg = gr.Slider(label="CFG Scale", minimum=1.0, maximum=32.0, value=1.0, step=0.01, visible=False)  # Should not change
                 gs = gr.Slider(label="Distilled CFG Scale", minimum=1.0, maximum=32.0, value=10.0, step=0.01, info='Changing this value is not recommended.')
                 rs = gr.Slider(label="CFG Re-Scale", minimum=0.0, maximum=1.0, value=0.0, step=0.01, visible=False)  # Should not change
-
+                gpu_memory_preservation = gr.Slider(
+                    label="GPU Inference Preserved Memory (GB) (larger means slower)",
+                    minimum=6, maximum=128, value=6, step=0.1,
+                    info="Set this number to a larger value if you encounter OOM. Larger value causes slower speed."
+                )
                 mp4_crf = gr.Slider(label="MP4 Compression", minimum=0, maximum=100,
                                     value=16, step=1,
                                     info="0 = lossless, increase to reduce file size")
